@@ -1,0 +1,51 @@
+<div class="modal">
+  <ion-header-bar class="ext-bar-green">
+    <h1 class="title"></h1>
+
+    <div class="buttons">
+      <button class="button button-clear icon ion-close-circled" ng-click="closeModal()"></button>
+    </div>
+    <!-- <ion-search placeholder="Search a user" filter="search"></ion-search> -->
+    <input type='text' ng-model='searchUser'>
+    <button ng-click= 'GetUser(searchUser)'>Submit</button> 
+  </ion-header-bar>
+  <ion-view view-title="New Trip" hide-back-button="true">
+      <ion-content>
+        <div style='margin: 15px;'>
+          <div class='contact-card' ng-repeat='user in users |filter:search.value'>
+            <div style='position: absolute;'ng-show='user.isIncluded' class='icon ion-checkmark-circled'></div>
+            <div class='image-container'>
+              <img class='image-pos' ng-src="{{user.image}}">
+            </div>
+            <div class='friends-name'>
+              <span  style='font-family:font-family:"Comic Sans MS", cursive, sans-serif;font-size: 15px;'>{{user.name}}
+              </span>
+            </div>
+            <div ng-show='user.isIncluded' >
+              <div class='status-pos remove'>
+                <div  style='text-align: center;color: white;' ng-click='removeTripMembers(user)'>Remove</div>
+              </div>
+            </div>
+            <div ng-show='!user.isIncluded'>
+              <div class='status-pos off'>
+                <div  style='text-align: center;color: white;' ng-click='addToTripMembers(user,$index)'>Add</div>
+              </div>
+            </div>
+            <div ng-show='user.isIncluded' >
+              <div class='status-pos on'>
+                <div  style='text-align: center;color: white;' >Added</div>
+              </div>
+            </div>
+             <!--  <div ng-show='user.isIncluded' class='status-pos'>
+               <div  style='text-align: center;color: white;' ng-click='addToTripMembers(user,$index)'>Added</div>
+             </div> -->
+          <!--   <div ng-show='user.isIncluded'>
+            <div class='status-pos'>
+              <div style='text-align: center;color: white;' >Added</div>
+            </div>
+          </div> -->
+          </div>
+        </div>
+      </ion-content>
+  </ion-view>
+</div>

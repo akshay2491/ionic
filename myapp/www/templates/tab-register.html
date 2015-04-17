@@ -1,0 +1,46 @@
+<ion-view view-title="Register">
+<ion-nav-bar class="bar-positive">
+   <ion-nav-back-button>
+   </ion-nav-back-button>
+ </ion-nav-bar>
+  <ion-content class="padding">
+  <div class='form-container'>
+    <div class="list">
+      <form class="form-horizontal" name="form" ng-submit="Register(user)">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">First Name</span>
+        <input type="text" placeholder="John" ng-model="user.fname" required>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">User Name</span>
+        <input type="text" placeholder="Suhr" ng-model="user.username" required>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Email</span>
+        <input type="email" placeholder="john@suhr.com" ng-model="user.email" required>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Password</span>
+        <input type="password"  ng-model="user.password" required>
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Confirm Password</span>
+        <input type="password"  ng-model="user.confirm" requiredz>
+      </label>
+      <div ng-if='user.password!=user.confirm'>
+        <h4 class="title">Password not matching</h4>
+      </div>
+      <div class='list'>
+        <button type='submit' class="button button-block button-positive">
+          Register
+        </button>
+      </div>
+    </form>
+    </div>
+    
+  <!--   <button type='submit' class="button button-block button-positive">
+        Register
+  </button> -->
+  </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,39 @@
+<ion-view view-title="Login" hide-back-button="true">
+<ion-nav-bar class="bar-positive">
+   <ion-nav-back-button>
+   </ion-nav-back-button>
+ </ion-nav-bar>
+  <ion-content class="padding">
+    <div class="list">
+      <form class="form-horizontal" name="form" ng-submit="loginUser(model)">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model='model.username' required>
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model='model.password' required>
+        </label>
+        <div class='list'>
+          <button type='submit' class="button button-block button-positive">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class='list'>
+      <div class="row">
+        <div class="col col-50">
+          <div style="float: right;">
+            <a href='#/register'>Forgot Password<span class="iconic iconic-md" data-glyph="caret-right" title="caret right" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <div class="col col-50">
+          <div>
+            <a href='#/register'>Register<span class="iconic iconic-md" data-glyph="caret-right" title="caret right" aria-hidden="true"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','starter.directives'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,8 +21,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
-
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
@@ -36,9 +35,59 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: "templates/tabs.html"
   })
 
+    .state('login',{
+      url:'/login',
+      templateUrl:"templates/tab-login.html",
+      controller: 'loginCtrl'
+    })
+
+    .state('register',{
+      url:'/register',
+      templateUrl:"templates/tab-register.html",
+      controller: 'loginCtrl'
+    })
+
+     .state('main',{
+      url:'/main',
+      templateUrl:"templates/tab-dash.html",
+      controller: 'ContentController'
+    })
+
+     .state('main.newTripTemp',{
+      url:'/newTripTemp',
+      templateUrl:'templates/tab-newtripTemp.html',
+      controller:'tripCtrl'
+     })
+
+     .state('main.home',{
+      url:'/home',
+      templateUrl:'templates/tab-home.html',
+      controller:'tripCtrl'
+     })
+
+     .state('main.expences',{
+      url:'/expences',
+      templateUrl:'templates/tab-expences.html',
+      controller:'tripCtrl'
+     })
+
+
+
+
+  /*   .state('newTrip',{
+      url:'/newTrip',
+      templateUrl:"templates/tab-newtrip.html"
+      })*/
+
+/*      .state('newTripTemp',{
+      url:'/newTripTemp',
+      templateUrl:"templates/tab-newtripTemp.html",
+      controller:'tripCtrl'
+      })
+*/
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
+/*  .state('tab.dash', {
     url: '/dash',
     views: {
       'tab-dash': {
@@ -46,6 +95,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         controller: 'DashCtrl'
       }
     }
+  })*/
+
+    .state('tab.register', {
+    url: '/register',
+    views :{
+      'tab-dash': {
+   templateUrl: 'templates/tab-register.html',
+   controller:'loginCtrl'
+    }
+  }
+   
   })
 
   .state('tab.chats', {
@@ -78,6 +138,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/login');
 
 });

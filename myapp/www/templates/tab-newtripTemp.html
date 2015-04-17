@@ -1,0 +1,57 @@
+<ion-view view-title="New Trip" hide-back-button="true" ng-controller='tripCtrl'>
+	<!-- <ion-nav-bar class='bar-positive'>
+	</ion-nav-bar> -->
+	<ion-content>
+	<div ng-show='loading'>
+		<div class='overlay'>
+		<!-- <ion-spinner icon="android"></ion-spinner> -->
+		<span class="l-1"></span>
+		<span class="l-2"></span>
+		<span class="l-3"></span>
+		<span class="l-4"></span>
+		<span class="l-5"></span>
+		<span class="l-6"></span>
+		</div>
+	</div>
+		<div class='list'>
+			<div class="item item-divider">
+			Enter the Trip Name
+			</div>
+	        <div class="list">
+	          <label class="item-input">
+	            <input type="text" ng-model="tripName">
+	          </label>
+	        </div>
+	    </div>
+	    <div class='list'>
+	    	<div class="item item-divider">
+	    		Add members
+			 </div>
+		</div>
+		 <div class='list'>
+		 	<div style='float:right;margin-bottom:10px;'>
+			<button class="button button-outline button-positive" ng-click='openModal()'>
+	  			<span  class="icon ion-person-add"></span>
+			</button>
+			<button class="button button-outline button-positive" ng-click='submitTripDetails(tripName)'>
+	  			<span  class="icon ion-checkmark-round"></span>
+			</button>
+			</div>
+		</div>
+		<div ng-show='currentTripMemebers.length'>
+		    <div class=''>
+		    	<div class="container-members">
+		  			<div>
+		  				<div class='members-added' ng-repeat='user in currentTripMemebers'>
+			    			<a class="item item-thumbnail-left">
+							    <img ng-src="{{user.image}}">
+							    <div style='height: 80px;width: 100px;float: left;text-align: center;'>{{user.name}}</div>
+							    <div  class="ion-close-circled" ng-click='removeUserFromTrip(user)'></div>
+							</a>
+						</div>
+		  			</div>
+				</div>
+		    </div>
+		</div>
+	</ion-content>
+</ion-view>

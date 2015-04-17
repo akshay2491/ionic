@@ -1,0 +1,40 @@
+<div class="modal">
+      <ion-header-bar>
+        <h1 class="title">{{user.firstName}} {{user.lastName}}</h1>
+        <div class="buttons">
+          <button class="button button-clear icon ion-close-circled" ng-click="closeModal()"></button>
+        </div>
+      </ion-header-bar>
+     <!--  <ion-content>
+             <div class="list card">
+               <div class="item item-avatar">
+                 <img src="http://placekitten.com/30/30">
+                 <h2>{{user.firstName}} {{user.lastName}}</h2>
+                 <p>{{user.email}}</p>
+               </div>
+               <div class="item item-image">
+                 <img src="http://placekitten.com/200/150">
+               </div>
+               <div class="item item-divider">Close the modal to change your info</div>
+             </div>
+           </ion-content>
+            -->      
+            <ion-view view-title="New Trip" hide-back-button="true">
+<ion-nav-bar class="top-bar-trip">
+   <ion-nav-back-button>
+   </ion-nav-back-button>
+ </ion-nav-bar>
+    <ion-content class="padding">
+    <div class="list">
+      <div class="item item-icon-left" href="#">
+        <i class="icon ion-email"></i>
+        Enter The Name of Trip
+      </div>
+      <div class="item item-icon-left" href="#">
+        <i class="icon ion-email"></i>
+        Add Members
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
+    </div>
